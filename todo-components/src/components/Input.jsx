@@ -1,6 +1,7 @@
 // components/Input.jsx
+import React from "react"
 
-const Input = (props:any) => {
+const Input = (props) => {
   const { value, onChange, onSubmit } = props;
   return (
     <form

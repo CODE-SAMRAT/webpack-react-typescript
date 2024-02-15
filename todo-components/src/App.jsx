@@ -1,4 +1,5 @@
 // App.jsx
+import React from "react"
 import { useState } from "react";
 import "./App.css";
 import Input from "./components/Input";
@@ -6,7 +7,7 @@ import Input from "./components/Input";
 import List from "./components/List"
 
 const App = ()  =>{
-  const [count, setCount] = useState<number>(0)
+  const [count, setCount] = useState(0)
 
   return (
     <>

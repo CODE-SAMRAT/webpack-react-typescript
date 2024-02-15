@@ -1,10 +1,11 @@
 // components/List.jsx
+import React from "react"
 
-const List = (props:any) => {
+const List = (props) => {
   const { items } = props;
   return (
     <ul>
-      {items.map((item:any, index:number) => (
+      {items.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
     </ul>

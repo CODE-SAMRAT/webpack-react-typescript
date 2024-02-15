@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
@@ -8,6 +9,19 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    port: 5174,
+    liveReload: true,
+    historyApiFallback: true,
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })],
+    alias: {
+      // Add aliases for your custom paths here
+      components: path.resolve(__dirname, "./src/components"),
+    },
   },
   module: {
     rules: [
@@ -27,12 +41,15 @@ module.exports = {
       }
     ]
   },
+  name:"host",
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './public/index.html',
+      filename: "index.html",
     }),
     new ModuleFederationPlugin({
       name: 'host',
+      filename: "remoteEntry.js",
       remotes: {
         remote: 'remote@http://localhost:5173/remoteEntry.js',
       },

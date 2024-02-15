@@ -34,5 +34,10 @@
     "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.0"
+  },
+  "browser": {
+    "components/Input": "./src/components/Input.jsx",
+    "components/List": "./src/components/Input.jsx",
+    "src/main": "./src/main.tsx"
   }
 }
