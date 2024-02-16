@@ -52,6 +52,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         remote: 'remote@http://localhost:5173/remoteEntry.js',
+        inventory:'inventory@http://localhost:5175/remoteEntry.js',
       },
     }),
   ],
